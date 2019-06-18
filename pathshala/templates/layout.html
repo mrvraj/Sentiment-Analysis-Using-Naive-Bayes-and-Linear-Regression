@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+
+<!-- Mirrored from www.codewithharry.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Mar 2019 03:08:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content=" This project is my attempt to teach basics and those coding techniques to people in short time which took me ages to learn.">
+    <meta name="keywords" content="programming in hindi, coding in hindi, hindi coding, programming hindi, hindi programming videos, python videos hindi, learn website in hindi, website hindi, python basics hindi, python flask videos, python django videos">
+
+    <!-- Favicons -->
+    <link rel="icon"  class="rounded-circle" type="image/png" href="{{ url_for('static', filename='photo.png') }}" />
+
+    <!-- Bootstrap CSS -->
+    
+    <!-- Bootstrap CSS
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"> 
+    -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+
+    <!-- Title Tag -->
+    <title> Programming Video Series & Playlist by V_Raj </title>
+    <!-- External CSS and JS -->
+    
+
+     
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-60726752-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-60726752-3');
+    </script>
+ <style type="text/css">
+    .custom-centered{
+     margin:0 auto;
+     width:300px;
+    }
+    .bg-color{
+        
+        background-color:#5bd1ba;
+        font-size: 17px;
+        font-weight: 400;
+        font-family: 'Roboto', sans-serif;
+        box-sizing: border-box;
+        color:black;
+        min-height:30px;
+    }
+    footer{
+        background-color: #6ecab8;
+        min-height:40px;
+        vertical-align: middle;
+        
+    }
+</style>
+    
+</head>
+
+<body>
+    <div class="container-fluid px-0">
+        <nav class="navbar navbar-expand-lg bg-color navbar-dark">
+            <a class="navbar-brand" href="/">
+                <img alt="Brand"  class="rounded-circle" style="max-width:42px;" src="{{ url_for('static', filename='photo.png') }}">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li><a class="nav-link" style="color: white;" href="/home">
+                        <span class="glyphicon glyphicon-th-list"></span>Home</a></li>
+                    <li><a style="display: none;" class="nav-link" style="color: white;" href="#">Videos</a></li>
+                    <li><a class="nav-link" style="color: white;" href="/videos">Videos</a></li>
+                    <li><a class="nav-link" style="color: white;" href="/contact">Contact me</a></li>
+                </ul>
+                <span class="navbar-text mr-4">
+                    <div class="form-inline">
+                    <form  method="get" action="#" >
+                        <input name="query" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-danger my-2 my-sm-0 ml-2" type="submit">Search</button>
+                        
+                    </form>
+                
+
+
+                    </div>
+                </span>
+              
+                {% if current_user.is_authenticated %}
+                <ul class="navbar-nav navbar-default">
+                    <img alt="Brand" class="rounded-circle" style="max-width:42px;max-height:42px;" src="{{ url_for('static', filename='photo.png') }}">
+                    <li class="nav-item dropdown" style="margin-right:20px;">
+                        <a class="nav-link dropdown-toggle" style="color: white;" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome 
+                         {{session['user']}}
+                            </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/myaccount">My Account</a>
+                            <a class="dropdown-item" href="{{ url_for('logout')}}">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+                {% else %}
+                <a href="{{ url_for('login') }}" class="btn btn-danger my-2 my-sm-0 ml-2">Login</a>
+                <a href="{{ url_for('register')}}" class="btn btn-danger my-2 my-sm-0 ml-2">Signup</a>
+                {% endif %}
+                
+            </div>
+        </nav>
+    </div>
+ 
+<div class="col-md-12 custom-centered">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+ </div>
+         
+{% block body %} {% endblock %}
+
+
+<br><br><br> 
+
+    <footer class="container-fluid navbar-expand-lg">
+        <p class="float-right"><a style="color: white; vertical-align: middle;" href="#">Back to top</a></p>
+        <p style="color: black; vertical-align: middle;">&copy; 2020 pathshala.com &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS 
+    <script src="{{ url_for('static', filename='js/jquery-3.3.1.slim.min.js') }}" ></script>
+    <script src="{{ url_for('static', filename='popper.min.js') }}" ></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script type="text/javascript">
+    document.getElementById('url').value = window.location.href;
+    </script>
+    <script src='static/www.google.com/recaptcha/api.js'></script>
+     
+     
+<script>
+
+    setTimeout(function(){ $('#supportModal').modal('show'); }, 60000);
+</script>
+</body>
+
+
+<!-- Mirrored from www.codewithharry.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Mar 2019 03:08:35 GMT -->
+</html>

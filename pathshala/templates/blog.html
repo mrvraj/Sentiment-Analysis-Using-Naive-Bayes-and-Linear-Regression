@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+
+
+<!-- Mirrored from www.codewithharry.com/blog by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Mar 2019 03:08:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Code with harry blog">
+    <meta name="keywords" content=" blog, code with harry, codewithharry, learn coding hindi ">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="static/photo.png" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Title Tag -->
+    <title> Coding Blog by Code With Harry </title>
+    <!-- External CSS and JS -->
+    
+<style type="text/css">
+p {
+    font-size: 20px;
+}
+
+.page-header {
+    margin: 10px 0 20px;
+}
+
+
+</style>
+
+    
+<!--Facebook JS-->
+
+<script>
+document.title = "CodeWithHarry Blog";
+</script>
+<script src="../apis.google.com/js/platform.js"></script>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-60726752-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-60726752-3');
+    </script>
+
+    <!-- Google Ads Auto -->
+    <script async src="../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+    <script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-9655830461045889",
+          enable_page_level_ads: true
+     });
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid px-0">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">
+                <img alt="Brand" style="max-width:42px;" src="static/photo.png">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li><a class="nav-link" href="index.html">Home</a></li>
+                    <li><a class="nav-link" href="videos.html">Videos</a></li>
+                    <li><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li><a class="nav-link" href="contact.html">Contact me</a></li>
+                </ul>
+                <span class="navbar-text mr-4">
+                    <div class="form-inline">
+                    <form  method="get" action="https://www.codewithharry.com/search" >
+                        <input name="query" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-danger my-2 my-sm-0 ml-2" type="submit">Search</button>
+                        
+                    </form>
+                
+
+
+                    </div>
+                </span>
+                
+                <button type="submit" class="btn btn-danger my-2 my-sm-0 ml-2" data-toggle="modal" data-target="#loginModal">Login</button>
+                <button type="submit" class="btn btn-danger my-2 my-sm-0 ml-2" data-toggle="modal" data-target="#signupModal">Signup</button>
+                
+            </div>
+        </nav>
+
+
+
+
+
+
+
+    </div>
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login Here</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="https://www.codewithharry.com/handlelogin" method='post'>
+                        <div class="form-group">
+                            <label for="lusername">Username</label>
+                            <input type="name" class="form-control" id="lusername" placeholder="Enter your username" name="lusername">
+                        </div>
+                        <div class="form-group">
+                            <label for="lpassword">Password</label>
+                            <input type="password" class="form-control" id="lpassword" placeholder="Enter your password" name="lpassword">
+                        </div>
+                        <div class="g-recaptcha" data-sitekey="6Ld3KmQUAAAAAPt71O1D6_qEKvpJF3PQoU9l3CSp"></div>
+                        <button type="submit" class="btn btn-default mt-2" id="loginsubmit">Login</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SignUp Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">SignUp to login, comment and track progress</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form name="contact" method="post" action="https://www.codewithharry.com/handlesignup">
+                        <div class="form-group">
+                            <label for="uname">Username</label>
+                            <input type="text" class="form-control" id="uname" placeholder="Enter your Name" name="uname">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" class="form-control" id="signupname" placeholder="Enter your Name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" class="form-control" id="signupemail" placeholder="Enter your Email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Your Phone Number (with country code)</label>
+                            <input type="text" class="form-control" id="signupphone" placeholder="Enter your Phone Number" name="phone">
+                        </div>
+                        <div class="g-recaptcha" data-sitekey="6Ld3KmQUAAAAAPt71O1D6_qEKvpJF3PQoU9l3CSp"></div><br>
+                        <input type="hidden" value="" id="url" name="url">
+                        <button type="submit" class="btn btn-default">SignUp</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<!-- Support Modal -->
+<div class="modal fade" id="supportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Support Code With Harry</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	  <p>
+        Although the videos and other content of this website are free for anyone to watch, learn and share, this website and the corresponding youtube channel CodeWithHarry relies on support from people like you.</p><p>
+
+		All the donations will be used in buying new equipment, improving quality of the content and bringing more of such videos up. You can support this content by donating any amount of money through PayTM by scanning the code below:</p>
+		<img src="static/paytm.png" class="rounded mx-auto d-block" style="
+    width: 40%;
+">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+<div class="container-fluid my-4">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-2">
+            <h1 class="page-header">
+                    Coding Capsules
+                    <small>By Code With Harry</small>
+            </h1> 
+            
+            <h2><a href="blogpost/support-code-with-harry.html" class="text-dark">Support Code With Harry</a></h2>
+            <p>Although the videos and other content of this website are free for anyone to watch, learn and share, this website and the corresponding youtube channel CodeWithHarry relies on support from people like you....</p>
+            <a class="btn btn-outline-danger" href="blogpost/support-code-with-harry.html">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+            <hr> 
+            
+            <!-- Pager -->
+
+
+
+                        <a class="btn btn-danger float-left" href="blog03be.html?number=0">&larr; Previous </a>
+                   
+                    
+                        <a class="btn btn-danger float-right" href="blog03be.html?number=2">Next  &rarr;</a>
+
+
+        </div>
+        <!-- Blog Sidebar Widgets Column -->
+       <div class="col-lg-4 col-md-12 my-3">
+            <div class="row">
+                <div class="col-md-8">
+            <form action="https://www.codewithharry.com/search" method='get'>
+            
+                <h4>Search</h4>
+                <div >
+                    <input type="text" name='query' class="form-control">
+                    
+                            <button type='submit' class="btn btn-danger mt-2 " type="button">Search
+                               
+                    </button>
+                  
+                </div>
+
+                <!-- /.input-group -->
+            
+        </form>
+
+<h4>Subscribe To Our YouTube Channels</h4>
+                <div class="g-ytsubscribe" data-channelid="UCeVMnSShP_Iviwkknt83cww" data-layout="full" data-count="default"></div><br>
+                <div class="g-ytsubscribe" data-channelid="UCa5UDzFzpIjJ1VSxCSlQP_g" data-layout="full" data-count="default"></div>
+
+</div>
+          </div>  
+                
+        </div>
+    </div>
+</div>
+
+    <footer class="container">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2019 CodeWithHarry.com &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="../cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="../stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    document.getElementById('url').value = window.location.href;
+    </script>
+    <script src='../www.google.com/recaptcha/api.js'></script>
+     
+     
+<script>
+
+
+    setTimeout(function(){ $('#supportModal').modal('show'); }, 60000);
+</script>
+</body>
+
+
+<!-- Mirrored from www.codewithharry.com/blog by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Mar 2019 03:08:37 GMT -->
+</html>

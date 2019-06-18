@@ -1,0 +1,26 @@
+{
+
+	"params":
+	{
+
+		"local_server":"True",
+		"local_uri":"mysql://root:@localhost/pathshala",
+		"prod_uri":"sqlite:///pathshala.db",
+		"fb_url":"https://www.facebook.com/codingthunder",
+		"tw_url":"https://www.twitter.com/codingthunder",		
+		"gh_url":"https://www.github.com/codingthunder",
+		"gmail-user":"ummchotu@gmail.com",
+		"gmail-password":"ummgujar",
+		"login_image":"terrorist.jpg",
+		"admin_user":"vishal@123",
+    	"admin_password": "vishal",
+    	"Precision":"The precision is the ratio tp / (tp + fp) where tp is the number of true positives and fp the number of false positives. The precision is intuitively the ability of the classifier not to label as positive a sample that is negative.",
+    	"Recall":"The recall is the ratio tp / (tp + fn) where tp is the number of true positives and fn the number of false negatives. The recall is intuitively the ability of the classifier to find all the positive samples.",
+    	"F1-Score":"The F-beta score can be interpreted as a weighted harmonic mean of the precision and recall, where an F-beta score reaches its best value at 1 and worst score at 0.",
+    	"Support":"The support is the number of occurrences of each class in y_true."
+
+
+	}
+
+
+}

@@ -1,0 +1,254 @@
+{% extends "layout-1.html" %}
+{% block body %}
+<script type="text/javascript">
+    S1=50;
+    S2=50;
+    S3=50;
+    S4=50;
+</script>
+   <!-- Main Menu area End-->
+	<!-- Breadcomb area Start-->
+	<div class="breadcomb-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="breadcomb-list">
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="breadcomb-wp">
+									<div class="breadcomb-icon">
+										<i class="notika-icon notika-bar-chart"></i>
+									</div>
+									<div class="breadcomb-ctn">
+										<h2>Sentiment Analysis</h2>
+										<p>Welcome to Pathshala <span class="bread-ntd">Admin Tab</span></p>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
+								<div class="breadcomb-report">
+									<button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i class="notika-icon notika-sent"></i></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <!-- Breadcomb area End-->
+
+    <!-- Breadcomb area Start-->
+    <div class="breadcomb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="breadcomb-list">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
+                                <div class="breadcomb-wp">
+                                    <div class="bootstrap-select fm-cmp-mg">
+                                        <h4>Choose Alogrithm</h4>
+                                        <select id="log_model" class="selectpicker">
+                                            <option>Select..</option>
+                                            <option>Linear Regression</option>
+                                            <option>Naive bayes</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
+                                        <h4>Select test-train ratio</h4>
+                                <div class="themesaller-forms mg-t-30">
+                                    <div class="spacer-b16a">
+                                        <label for="bedrooms">Train :</label>
+                                        <input type="text" id="train_size" class="slider-input">
+                                    </div>
+                                    <div class="slider-wrapper blue-slider">
+                                        <div id="slider3"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 col-md-6 col-sm-6 col-xs-3">
+                                <div class="breadcomb-report">
+                                    <button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i class="notika-icon notika-sent"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcomb area End-->
+<dir id="Report" class="breadcomb-area" style="padding-left: 0;">
+
+    <!-- Classification Report Matrix Start-->
+            <div class="breadcomb-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="normal-table-list mg-t-30">
+                                            <div class="basic-tb-hd">
+                                                <h2>Confusion Matrix</h2>
+                                                <p></p>
+                                            </div>
+                                            <div class="bsc-tbl-hvr">
+                                                <table class="table table-hover table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th title="PRECISION">Predicted: NO</th>
+                                                            <th>Predicted: YES</th>
+                                                            <th>F1-SCORE</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><b>Actual: NO</b></td>
+                                                            <td><B></B></td>
+                                                            <td><B>{{cunfusion}}</B></td>
+                                                            <td><B></B></td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td><b>Actual: YES</b></td>
+                                                            <td><B></B></td>
+                                                            <td><B></B></td>
+                                                            <td><B></B></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><B>micro avg</B></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                               </div>
+                        </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="normal-table-list mg-t-30">
+                                            <div class="basic-tb-hd">
+                                                <h2>Classification Report</h2>
+                                                <p></p>
+                                            </div>
+                                            <div class="bsc-tbl-hvr">
+                                                <table class="table table-hover table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th title="PRECISION">PRECISION</th>
+                                                            <th>RECALL</th>
+                                                            <th>F1-SCORE</th>
+                                                            <th>SUPPORT</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><b>1</b></td>
+                                                            <td><B>{{params['class-0'][1]}}</B></td>
+                                                            <td><B>{{params['class-0'][2]}}</B></td>
+                                                            <td><B>{{params['class-0'][3]}}</B></td>
+                                                            <td><B>{{params['class-0'][4]}}</B></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><b>2</b></td>
+                                                            <td><B>{{params['class-1'][1]}}</B></td>
+                                                            <td><B>{{params['class-1'][2]}}</B></td>
+                                                            <td><B>{{params['class-1'][3]}}</B></td>
+                                                            <td><B>{{params['class-1'][4]}}</B></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><B>micro avg</B></td>
+                                                            <td>{{params['micro avg'][2]}}</td>
+                                                            <td>{{params['micro avg'][3]}}</td>
+                                                            <td>{{params['micro avg'][4]}}</td>
+                                                            <td>{{params['micro avg'][5]}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><B>macro avg</B></td>
+                                                            <td>{{params['macro avg'][2]}}</td>
+                                                            <td>{{params['macro avg'][3]}}</td>
+                                                            <td>{{params['macro avg'][4]}}</td>
+                                                            <td>{{params['macro avg'][5]}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><B>weighted avg</B></td>
+                                                            <td>{{params['weighted avg'][2]}}</td>
+                                                            <td>{{params['weighted avg'][3]}}</td>
+                                                            <td>{{params['weighted avg'][4]}}</td>
+                                                            <td>{{params['weighted avg'][5]}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                               </div>
+                        </div>
+
+                </div>
+            </div>
+
+           <!-- Bar Chart area End-->
+            <div class="bar-chart-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="bar-chart-wp">
+                                <canvas height="140vh" width="300vw" id="barchart2"></canvas>
+                            </div>
+                        </div>
+         <!--                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="bar-chart-wp sm-res-mg-t-30 chart-display-nn">
+                                <canvas height="140vh" width="180vw" id="barchart1"></canvas>
+                            </div>
+                        </div>
+          -->           </div>
+<!--                     <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="bar-chart-wp mg-t-30 chart-display-nn">
+                                <canvas height="140vh" width="180vw" id="barchart3"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="bar-chart-wp mg-t-30 chart-display-nn">
+                                <canvas height="140vh" width="180vw" id="barchart4"></canvas>
+                            </div>
+                        </div>
+                    </div>
+ -->                </div>
+            </div>
+            <!-- Bar Chart area End-->
+ </dir>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+ $("#log_model").change(function(){
+    var text = $(this).val();
+    var train_size=$("#train_size").val();
+
+    $.ajax({
+      url: "/report",
+      type: "get",
+      data: {log_model: text,train:train_size/10},
+      success: function(response) {
+        $("#Report").html(response);
+      },
+      error: function(xhr) {
+        //Do Something to handle error
+      }
+    });
+});
+
+</script>
+
+
+{% endblock %}

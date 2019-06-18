@@ -1,0 +1,154 @@
+<script type="text/javascript">
+    S1='{{out[0]}}';
+    S2='{{out[1]}}';
+    S3='{{out[2]}}';
+    S4='{{out[3]}}';
+    
+</script>
+<dir id="Report" class="breadcomb-area" style="padding-left: 0;">
+
+    <!-- Classification Report Matrix Start-->
+            <div class="breadcomb-area">
+                <div class="container">
+                     <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="normal-table-list mg-t-30">
+                                            <div class="basic-tb-hd">
+                                                <h2>Confusion Matrix</h2>
+                                                <p></p>
+                                            </div>
+                                            <div class="bsc-tbl-hvr">
+                                                <table class="table table-hover table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th title="PRECISION">Predicted: NO</th>
+                                                            <th>Predicted: YES</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><b>Actual: NO</b></td>
+                                                            <td><B>TN: {{confusion[0]}}</B></td>
+                                                            <td><B>FP: {{confusion[1]}}</B></td>
+                                                            <td><B></B></td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td><b>Actual: YES</b></td>
+                                                            <td><B>FN: {{confusion[2]}}</B></td>
+                                                            <td><B>TP: {{confusion[3]}}</B></td>
+                                                            <td><B></B></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><B></B></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                               </div>
+                        </div>
+
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="normal-table-list mg-t-30">
+                                            <div class="basic-tb-hd">
+                                                <h2>Classification Report</h2>
+                                                <p></p>
+                                            </div>
+                                            <div class="bsc-tbl-hvr">
+                                                <table class="table table-hover table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th title="The precision is the ratio tp / (tp + fp) where tp is the number of true positives and fp the number of false positives. The precision is intuitively the ability of the classifier not to label as positive a sample that is negative.">PRECISION</th>
+                                                            <th title="The recall is the ratio tp / (tp + fn) where tp is the number of true positives and fn the number of false negatives. The recall is intuitively the ability of the classifier to find all the positive samples.">RECALL</th>
+                                                            <th title="The F-beta score can be interpreted as a weighted harmonic mean of the precision and recall, where an F-beta score reaches its best value at 1 and worst score at 0.">F1-SCORE</th>
+                                                            <th title="The support is the number of occurrences of each class in y_true.">SUPPORT</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><b>0</b></td>
+                                                            <td><B>{{params['class-0'][1]}}</B></td>
+                                                            <td><B>{{params['class-0'][2]}}</B></td>
+                                                            <td><B>{{params['class-0'][3]}}</B></td>
+                                                            <td><B>{{params['class-0'][4]}}</B></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><b>1</b></td>
+                                                            <td><B>{{params['class-1'][1]}}</B></td>
+                                                            <td><B>{{params['class-1'][2]}}</B></td>
+                                                            <td><B>{{params['class-1'][3]}}</B></td>
+                                                            <td><B>{{params['class-1'][4]}}</B></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><B>micro avg</B></td>
+                                                            <td>{{params['micro avg'][2]}}</td>
+                                                            <td>{{params['micro avg'][3]}}</td>
+                                                            <td>{{params['micro avg'][4]}}</td>
+                                                            <td>{{params['micro avg'][5]}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><B>macro avg</B></td>
+                                                            <td>{{params['macro avg'][2]}}</td>
+                                                            <td>{{params['macro avg'][3]}}</td>
+                                                            <td>{{params['macro avg'][4]}}</td>
+                                                            <td>{{params['macro avg'][5]}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><B>weighted avg</B></td>
+                                                            <td>{{params['weighted avg'][2]}}</td>
+                                                            <td>{{params['weighted avg'][3]}}</td>
+                                                            <td>{{params['weighted avg'][4]}}</td>
+                                                            <td>{{params['weighted avg'][5]}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                               </div>
+                        </div>
+                    </div>
+            </div>
+
+           <!-- Bar Chart area End-->
+            <div class="bar-chart-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="bar-chart-wp">
+                                <canvas height="140vh" width="300vw" id="barchart2"></canvas>
+                            </div>
+                        </div>
+         <!--                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="bar-chart-wp sm-res-mg-t-30 chart-display-nn">
+                                <canvas height="140vh" width="180vw" id="barchart1"></canvas>
+                            </div>
+                        </div>
+          -->           </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="bar-chart-wp mg-t-30 chart-display-nn">
+                                <canvas height="140vh" width="180vw" id="barchart3"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="bar-chart-wp mg-t-30 chart-display-nn">
+                                <canvas height="140vh" width="180vw" id="barchart4"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bar Chart area End-->
+ </dir>
+
+
+<script src="{{ url_for('static', filename='static/js/charts/bar-chart.js') }}"></script>

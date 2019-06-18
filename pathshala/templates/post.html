@@ -1,0 +1,99 @@
+ <script type="text/javascript">
+     
+
+ </script>
+    <div id="Comments" class="col-lg-8 border order-3 mx-4 my-2">
+        <div id="comments" class="container ">
+            {% if current_user.is_authenticated %}
+                
+            <div class="container my-4">
+
+                <h1>Comments({{params['comments']}})</h1>
+                
+                
+
+                 {% for comment in comments %}
+                <div class="row mt-4">
+                    <div class="col-lg-1 mx-4">
+                        <img class="rounded-circle" src="../static/default_avatar.png" style="
+                    max-width: 91px;">
+                </div>
+                        <div class="col-lg-10 mt-2 mx-2">
+                            <div class="">
+                            <b>{{comment.user}}</b> at {{comment.timestamp}} says<br>
+                            {{comment.comment}}
+                            </div>
+                            
+                            <div class="my-2 reply" id="reply-but-8" style="display: none;">
+                                <form action="addreply" method="post" >
+                               <textarea type="text" class="form-control my-2"  placeholder="Write a reply..." name="postcomment" id="postcomment-but-8"></textarea>
+                               
+                               <div id="google-captcha-cwh-but-8"></div>
+                               <input type="hidden" name="commentsno" value="8">
+                               <input type="hidden" name="postsno" value="7">
+                               
+                               <input type="hidden" name="cururl" value="/videos/coding-discussion-1">
+                               <button class="btn btn-danger mt-2" type="submit">Submit</button>
+                               </form>
+                            </div>
+                            <!-- replies are here -->
+                                
+                            
+                            
+                        </div>
+
+                    </div>
+                 {% endfor %}   
+
+
+
+                    
+                </div>
+                <div class="form">
+                <div class="form-group">
+                    <h2><label for="inputAddress">Post a comment</label></h2>
+                    <textarea type="text" class="form-control" id="postcomment" placeholder="Write a comment..." name="postcomment" required="True"></textarea>
+                </div>
+                <input type="hidden" name="postsno" value="1">
+                <input type="hidden" name="uname" value="mrv">
+                <input type="hidden" name="cururl" value="/videos/intermediate-python-1">
+                <button type="submit" id="next" on-click="on_submit()" class="btn btn-danger mt-3">Post</button>
+            </div>
+            
+            <div class="container my-4">
+
+                <h1>Be the first person to comment! </h1>
+                
+            </div>
+
+
+            {% else %}    
+                <div class="form-group my-4">
+                <h2><label for="inputAddress">You must be logged in to post a comment!</label></h2>
+                <a href="{{ url_for('login') }}" class="btn btn-danger my-2 my-sm-0 ml-2" >Login Here</a>
+                <a href="{{ url_for('register') }}" class="btn btn-danger my-2 my-sm-0 ml-2" >Signup Here</a>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+    <hr> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+ $("#next").click(function(){
+    var text = document.getElementById('postcomment').value;
+    var slug='{{slug}}'
+    $.ajax({
+      url: '/videos',
+      type: "get",
+      data: {postcomment: text,slug:slug},
+      success: function(response) {
+        $("#Comments").html(response);
+      },
+      error: function(xhr) {
+        //Do Something to handle error
+      }
+    });
+
+ });
+</script>

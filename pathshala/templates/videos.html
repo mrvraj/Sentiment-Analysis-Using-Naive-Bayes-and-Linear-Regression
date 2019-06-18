@@ -1,0 +1,200 @@
+{% extends "layout-1.html" %} 
+{% block body %} 
+
+    <!-- Title Tag -->
+    <title>{{params['title']}} </title>
+    <!-- External CSS and JS -->
+    
+<link href="../static/css/prism.css" rel="stylesheet">
+<style type="text/css">
+    .scroll{
+    max-height: 1000px;
+    overflow-y: scroll;
+    }
+
+pre {
+    max-height: 300px;
+}
+</style>
+
+    
+<script src="../static/js/prism.js"></script>
+
+   
+<div class="container-fluid row mt-4">
+    <div class="col-lg-3 px-8 mx-4 border order-2 my-2 scroll">
+        <!-- Blog Search Well -->
+        <form action="#" method='get'>
+            <h4>Search</h4>
+            <div>
+                <input type="text" name='query' class="form-control">
+                <button type='submit' class="btn btn-danger mt-2 ">Search
+                </button>
+            </div>
+            <!-- /.input-group -->
+        </form>
+        </br>
+        <!-- Tutorial Index Well -->
+        <div class="well">
+            <h4 style="font-size:1.5vw;">{{params['title']}}</h4>
+            {% for video in videos %}
+            <div class="row">
+                <div class="col-lg-12">
+                     {% if loop.index==params['id']|int+1 %}
+
+                    <a href="#" class="btn btn-danger mt-3" role="button" >{{loop.index}} {{video.title[0:30]}}...</a>
+
+                     {% else %}
+
+                     <a href="/videos/{{params['slug']}}-{{loop.index}}" class="btn btn-light mt-3" role="button" >{{loop.index}} {{video.title[0:30]}}...</a>
+
+                     {% endif %}
+                     
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-lg-8 border order-1 py-2 mx-4 my-2">
+        <div class="row">
+            <div class="container-fluid">
+                <h2 class="page-header" >{{params['title']}}</h2>
+                <h4><a href="#" class="text-dark">{{videos[params['id']].title}}</a></h4>
+                <div class="col-md-12">
+                    <p>
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/{{videos[params['id']].link}}" allowfullscreen></iframe></div>
+                    </p>
+                </div>
+                <br>
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Description</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Source Code</a>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><p>
+<br>
+<br>
+I hope you like this video!<br>
+
+
+</p>
+                        
+                        <a style="display: none;" class="btn btn-danger mt-4" href="coding-discussion-2.html"> [Hindi] Which Programming Language... >><span class="glyphicon glyphicon-chevron-right"></span></a>
+                        
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">There is no source code associated with this video. If you need some specific code/video not available on this website, you can go to the discussions tab and ask for it :)
+                        <br>
+                        
+                        <a style="display: none;" class="btn btn-danger mt-4" href="coding-discussion-2.html"> [Hindi] Which Programming Language... >><span class="glyphicon glyphicon-chevron-right"></span></a>
+                        
+                    </div>
+                </div>
+                <hr>
+                <a style="display: none;" class="btn btn-danger float-left" href="#">&larr; Previous Tutorial</a>
+                <a style="display: none;" class="btn btn-danger float-right" href="#">Next Tutorial &rarr;</a>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div id="Comments" class="col-lg-8 border order-3 mx-4 my-2">
+        <div id="comments" class="container ">
+            {% if current_user.is_authenticated %}
+                
+            <div class="container my-4">
+
+                <h1>Comments({{params['comments']}})</h1>
+                
+                
+
+                 {% for comment in comments %}
+                <div class="row mt-4">
+                    <div class="col-lg-1 mx-4">
+                        <img class="rounded-circle" src="../static/default_avatar.png" style="
+                    max-width: 91px;">
+                </div>
+                        <div class="col-lg-10 mt-2 mx-2">
+                            <div class="">
+                            <b>{{comment.user}}</b> at {{comment.timestamp}} says<br>
+                            {{comment.comment}}
+                            </div>
+                            
+                            <div class="my-2 reply" id="reply-but-8" style="display: none;">
+                                <form action="addreply" method="post" >
+                               <textarea type="text" class="form-control my-2"  placeholder="Write a reply..." name="postcomment" id="postcomment-but-8"></textarea>
+                               
+                               <div id="google-captcha-cwh-but-8"></div>
+                               <input type="hidden" name="commentsno" value="8">
+                               <input type="hidden" name="postsno" value="7">
+                               
+                               <input type="hidden" name="cururl" value="/videos/coding-discussion-1">
+                               <button class="btn btn-danger mt-2" type="submit">Submit</button>
+                               </form>
+                            </div>
+                            <!-- replies are here -->
+                                
+                            
+                            
+                        </div>
+
+                    </div>
+                 {% endfor %}   
+
+
+
+                    
+                </div>
+                <div class="form">
+                <div class="form-group">
+                    <h2><label for="inputAddress">Post a comment</label></h2>
+                    <textarea type="text" class="form-control" id="postcomment" placeholder="Write a comment..." name="postcomment" required="True"></textarea>
+                </div>
+                <input type="hidden" name="postsno" value="1">
+                <input type="hidden" name="uname" value="mrv">
+                <input type="hidden" name="cururl" value="/videos/intermediate-python-1">
+                <button type="submit" id="next" on-click="on_submit()" class="btn btn-danger mt-3">Post</button>
+            </div>
+            
+            <div class="container my-4">
+
+                <h1>Be the first person to comment! </h1>
+                
+            </div>
+
+
+            {% else %}    
+                <div class="form-group my-4">
+                <h2><label for="inputAddress">You must be logged in to post a comment!</label></h2>
+                <a href="{{ url_for('login') }}" class="btn btn-danger my-2 my-sm-0 ml-2" >Login Here</a>
+                <a href="{{ url_for('register') }}" class="btn btn-danger my-2 my-sm-0 ml-2" >Signup Here</a>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+    <hr> 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+ $("#next").click(function(){
+    var text = document.getElementById('postcomment').value;
+    var slug='{{slug}}'
+    $.ajax({
+      url: '/videos',
+      type: "get",
+      data: {postcomment: text,slug:slug},
+      success: function(response) {
+        $("#Comments").html(response);
+      },
+      error: function(xhr) {
+        //Do Something to handle error
+      }
+    });
+
+ });
+</script>
+
+{% endblock %}
